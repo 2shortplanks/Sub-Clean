@@ -15,11 +15,9 @@ sub import {
   my $package = caller();
   
   # create a subroutine in their namespace
-  eval <<"PERL" or die $@;
   sub ${package}::cleaned :ATTR(CODE,INIT) {
     namespace::clean->clean_subroutines('$package', \*{ \$_[1] }{NAME} );
-  }; 1
-PERL
+  };
 
   # remove it when they're done compiling
   on_scope_end {
