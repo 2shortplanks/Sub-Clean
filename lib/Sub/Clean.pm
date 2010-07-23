@@ -17,8 +17,7 @@ sub import {
   # create a subroutine in their namespace
   eval <<"PERL" or die $@;
   sub ${package}::cleaned :ATTR(CODE,INIT) {
-    no strict 'refs';
-    delete \$${package}::{ \*{ \$_[1] }{NAME} };
+    namespace::clean->clean_subroutines('$package', \*{ \$_[1] }{NAME} );
   }; 1
 PERL
 
