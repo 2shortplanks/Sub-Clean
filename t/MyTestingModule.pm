@@ -14,4 +14,7 @@ sub bar : cleaned {
   return "ok";
 }
 
+# little check to see that bar is still availble here
+die unless bar() eq "ok";
+
 1;

@@ -6,12 +6,9 @@ use 5.008;
 use strict;
 use warnings;
 
+use namespace::clean;
 use Attribute::Handlers;
 use B::Hooks::EndOfScope;
-
-use Exporter;
-
-use Data::Dumper;
 
 sub import {
   use Data::Dumper;
@@ -25,7 +22,7 @@ sub import {
 PERL
 
   on_scope_end {
-    #TODO;
+    eval "delete \$${package}::{cleaned}";
   };
 
   return;
