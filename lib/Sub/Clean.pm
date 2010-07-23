@@ -14,6 +14,7 @@ sub import {
   use Data::Dumper;
   my $package = caller();
   
+  # create a subroutine in their namespace
   eval <<"PERL" or die $@;
   sub ${package}::cleaned :ATTR(CODE,INIT) {
     no strict 'refs';
@@ -21,8 +22,9 @@ sub import {
   }; 1
 PERL
 
+  # remove it when they're done compiling
   on_scope_end {
-    eval "delete \$${package}::{cleaned}";
+    namespace::clean->clean_subroutines($package, "cleaned");
   };
 
   return;
