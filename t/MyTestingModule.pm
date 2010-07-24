@@ -10,7 +10,7 @@ sub foo {
   return bar();
 }
 
-sub bar : cleaned {
+sub bar :Cleaned {
   return "ok";
 }
 
