@@ -79,7 +79,7 @@ For example, this:
   package main;
   print PubBanner->message();
 
-Print out the right thing:
+Prints out the right thing:
 
   --------------------
   Moe's
@@ -112,7 +112,7 @@ interface at http://rt.cpan.org/Public/Dist/Display.html?Name=Sub-Clean
 
 The latest version of this module is available from the
 Comprehensive Perl Archive Network (CPAN). 
-isit http://www.perl.com/CPAN/ to find a CPAN site near you,
+visit http://www.perl.com/CPAN/ to find a CPAN site near you,
 or see http://search.cpan.org/dist/Sub-Clean/
 
 The development version lives at http://github.com/2shortplanks/Sub-Clean/.
